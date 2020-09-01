@@ -1,10 +1,12 @@
 import React from "react";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
-import Home from "../pages/Home";
-import About from "../pages/About";
-import Continent from "../pages/Continent";
-import Country from "../pages/Country";
-import NotFound from "../pages/Notfound";
+import Layout from "../pages/Layout/Layout";
+import Home from "../pages/Home/Home";
+import About from "../pages/About/About";
+import Continent from "../pages/Continent/Continent";
+import Country from "../pages/Country/Country";
+import NotFound from "../pages/NotFound/NotFound";
+import "./_app.scss";
 
 const routes = [
   {
@@ -80,16 +82,20 @@ const routes = [
 ];
 const App = () => {
   return (
-    <BrowserRouter>
-      <Switch>
-        {routes.map(({ path, Component, name }) => (
-          <Route key={name} path={path} exact>
-            <Component />
-          </Route>
-        ))}
-        <Route component={NotFound} />
-      </Switch>
-    </BrowserRouter>
+    <div className="app">
+      <BrowserRouter>
+        <Layout>
+          <Switch>
+            {routes.map(({ path, Component, name }) => (
+              <Route key={name} path={path} exact>
+                <Component />
+              </Route>
+            ))}
+            <Route component={NotFound} />
+          </Switch>
+        </Layout>
+      </BrowserRouter>
+    </div>
   );
 };
 

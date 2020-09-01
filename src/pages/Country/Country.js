@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { connect } from "react-redux";
-import { fetchCountryData } from "../actions/actions";
-import NotFound from "./Notfound";
+import { fetchCountryData } from "../../actions/actions";
+import NotFound from "../Notfound/NotFound";
 
 const Country = ({ fetchCountryData, country, loading }) => {
   useEffect(() => {

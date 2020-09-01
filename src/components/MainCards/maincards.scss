@@ -1,0 +1,30 @@
+@import "../../routes/app";
+
+.maincards {
+  background-color: cl(White);
+  display: flex;
+  flex-direction: column;
+  min-width: 300px;
+  min-height: 300px;
+  border-radius: 20px;
+  box-shadow: $box-shadow;
+  overflow: hidden;
+  position: relative;
+  align-items: center;
+  margin: 10px;
+  &__image {
+    height: 90%;
+    position: absolute;
+    top: 0;
+  }
+  & img {
+    width: inherit;
+    height: inherit;
+  }
+  &__name {
+    position: absolute;
+    bottom: 5%;
+    font-size: fs(L);
+    color: cl(Black);
+  }
+}
