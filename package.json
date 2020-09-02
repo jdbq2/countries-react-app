@@ -15,7 +15,7 @@
     "sass": "^1.26.10"
   },
   "dependencies": {
-    "reac": "0.0.0",
+    "numeral": "^2.0.6",
     "react": "16.13.1",
     "react-dom": "16.13.1",
     "react-redux": "^7.2.1",

@@ -1,25 +1,21 @@
 @import "../../routes/app";
 
-.home {
-  width: 90%;
+.countriesList {
+  width: 100%;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  overflow: hidden;
+  overflow-x: hidden;
   &__title {
     font-size: fs(XL);
     text-align: center;
-    margin: fs(S);
-  }
-  &__subtitle {
-    font-size: fs(L);
-    text-align: center;
-    margin: fs(S);
   }
   &__cards {
     display: flex;
-    flex-wrap: wrap;
-    align-items: center;
     justify-content: center;
+    flex-wrap: wrap;
+    max-width: 100%;
   }
 }

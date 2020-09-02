@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import { connect } from "react-redux";
 import { fetchCountryData } from "../../actions/actions";
 import NotFound from "../Notfound/NotFound";
+import CountryComponent from "../../components/CountryComponent/CountryComponent";
 
 const Country = ({ fetchCountryData, country, loading }) => {
   useEffect(() => {
@@ -12,7 +13,7 @@ const Country = ({ fetchCountryData, country, loading }) => {
   ) : loading ? (
     <h1>LOADING...</h1>
   ) : (
-    <h1>{country.name}</h1>
+    <CountryComponent />
   );
 };
 

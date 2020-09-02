@@ -1,29 +1,46 @@
 @import "../../routes/app";
 
 .navbar {
-  width: 100vw;
+  width: 100%;
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
+  justify-content: space-between;
+  background-color: cl(White);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  overflow: hidden;
   &__button {
-    margin: 20px;
     width: 100px;
     height: 100px;
     background: transparent;
     border-radius: 50%;
     font-size: fs(L);
     font-weight: bold;
+    margin: 20px;
+    transition: all 0.2s ease-in-out;
+    &:hover {
+      color: cl(White);
+      border-color: cl(Pink);
+      background-color: black;
+    }
   }
   &__menu {
-    display: none;
     flex-direction: column;
     align-items: center;
-    width: 100vw;
-    height: 100vh;
+    justify-content: space-evenly;
+    margin-bottom: 20px;
+    height: 85%;
   }
-}
-
-.noDisplay {
-  display: flex;
+  a {
+    text-decoration: none;
+    color: cl(Black);
+    font-size: fs(L);
+    font-weight: bolder;
+    &:hover {
+      color: cl(Pink);
+      transition: all 0.2s ease-in-out;
+    }
+  }
 }

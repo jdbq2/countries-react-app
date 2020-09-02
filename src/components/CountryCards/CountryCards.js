@@ -1,4 +1,5 @@
 import React from "react";
+import "./countrycards.scss";
 
 const CountryCards = ({ image, name, subregion }) => {
   return (

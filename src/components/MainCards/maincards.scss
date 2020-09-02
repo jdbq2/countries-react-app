@@ -12,6 +12,14 @@
   position: relative;
   align-items: center;
   margin: 10px;
+  transition: all 0.2s ease-in-out;
+  &:hover {
+    background-color: cl(Black);
+    border: 1px solid cl(Pink);
+  }
+  &:hover .maincards__name {
+    color: cl(White);
+  }
   &__image {
     height: 90%;
     position: absolute;
@@ -26,5 +34,6 @@
     bottom: 5%;
     font-size: fs(L);
     color: cl(Black);
+    transition: all 0.5s ease-in-out;
   }
 }

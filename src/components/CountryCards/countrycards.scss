@@ -1,0 +1,54 @@
+@import "../../routes/app";
+
+.countrycards {
+  background-color: cl(White);
+  display: flex;
+  flex-direction: column;
+  min-width: 150px;
+  max-width: 150px;
+  min-height: 200px;
+  max-height: 220px;
+  border-radius: 20px;
+  box-shadow: $box-shadow;
+  overflow: hidden;
+  position: relative;
+  align-items: center;
+  margin: 10px;
+  transition: all 0.2s ease-in-out;
+  &:hover {
+    background-color: cl(Black);
+    border: 1px solid cl(Pink);
+  }
+  &:hover .countrycards__name {
+    color: cl(White);
+  }
+  &:hover .countrycards__subregion {
+    color: cl(White);
+  }
+  &__image {
+    width: 110%;
+    height: 75%;
+    position: absolute;
+    top: 0;
+  }
+  & img {
+    width: inherit;
+    height: inherit;
+  }
+  &__name {
+    margin-top: 10px;
+    position: absolute;
+    bottom: 15%;
+    font-size: fs(M);
+    color: cl(Black);
+    text-align: center;
+    transition: all 0.5s ease-in-out;
+  }
+  &__subregion {
+    position: absolute;
+    bottom: 5%;
+    font-size: fs(S);
+    color: cl(Black);
+    transition: all 0.5s ease-in-out;
+  }
+}
