@@ -1,12 +1,11 @@
 import React from "react";
-import { HashRouter, Route } from "react-router-dom";
+import { HashRouter, Route, Switch } from "react-router-dom";
 import Layout from "../pages/Layout/Layout";
 import Home from "../pages/Home/Home";
 import Continent from "../pages/Continent/Continent";
 import Country from "../pages/Country/Country";
-import { CSSTransition } from "react-transition-group";
 import "./_app.scss";
-import "./page.scss";
+import NotFound from "../pages/Notfound/NotFound";
 
 const routes = [
   {
@@ -18,11 +17,6 @@ const routes = [
     path: "/:continent/:code",
     Component: Country,
     name: "country",
-  },
-  {
-    path: "/:continent",
-    Component: Continent,
-    name: "countries",
   },
   {
     path: "/asia",
@@ -49,28 +43,27 @@ const routes = [
     Component: Continent,
     name: "asia",
   },
+  {
+    path: "/all",
+    Component: Continent,
+    name: "all",
+  },
 ];
 
 const App = () => {
   return (
     <HashRouter basename="/">
       <Layout>
-        {routes.map(({ path, Component, name }) => (
-          <Route key={path} exact={true} path={path}>
-            {({ match }) => (
-              <CSSTransition
-                in={match != null}
-                timeout={400}
-                classNames="page"
-                unmountOnExit
-              >
-                <div className="app">
-                  <Component />
-                </div>
-              </CSSTransition>
-            )}
-          </Route>
-        ))}
+        <Switch>
+          {routes.map(({ path, Component }) => (
+            <Route key={path} exact path={path}>
+              <div className="app">
+                <Component />
+              </div>
+            </Route>
+          ))}
+          <Route component={NotFound} />
+        </Switch>
       </Layout>
     </HashRouter>
   );

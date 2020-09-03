@@ -4,10 +4,9 @@ import { fetchGlobalData, fetchContinentData } from "../../actions/actions";
 import Loader from "../../components/Loader/Loader";
 import ContinentComponent from "../../components/ContinentComponent/ContinentComponent";
 import NotFound from "../Notfound/NotFound";
-import { matchPath } from "react-router-dom";
 
 const Continent = ({
-  countries,
+  countries = [],
   loading,
   fetchContinentData,
   fetchGlobalData,
@@ -19,7 +18,8 @@ const Continent = ({
       fetchContinentData(location.hash.split("/")[1]);
     }
   }, []);
-  return countries.message ? (
+  console.log(countries);
+  return countries.length < 1 ? (
     <NotFound />
   ) : loading ? (
     <Loader />
