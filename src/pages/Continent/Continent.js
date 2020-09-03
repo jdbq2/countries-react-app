@@ -18,7 +18,6 @@ const Continent = ({
       fetchContinentData(location.pathname.slice(1));
     }
   }, []);
-
   return countries.message ? (
     <NotFound />
   ) : loading ? (

@@ -3,6 +3,7 @@ import "./countrycomponent.scss";
 import { connect } from "react-redux";
 import numeral from "numeral";
 import gsap from "gsap";
+import Head from "../Head/Head";
 
 const CountryComponent = ({ country }) => {
   const dataArray = [
@@ -91,6 +92,10 @@ const CountryComponent = ({ country }) => {
 
   return (
     <div className="countryInfo">
+      <Head
+        pageTitle={`${country.name}`}
+        description={`Page to get info about ${country.name}`}
+      />
       <h1 ref={(el) => (name = el)} className="countryInfo__title">
         {country.name}
       </h1>

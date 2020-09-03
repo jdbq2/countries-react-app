@@ -20,6 +20,12 @@ const Navbar = () => {
     disabledButton();
   };
 
+  const handleLinkClick = (e) => {
+    setClicked(!clicked);
+    disabledButton();
+    location.pathname = e.target.id;
+  };
+
   const disabledButton = () => {
     setDisabled(!disabled);
     setTimeout(() => {
@@ -31,12 +37,12 @@ const Navbar = () => {
     const tl = gsap.timeline();
     clicked
       ? (tl.to(menuContainer, {
-          duration: 0.6,
+          duration: 0.8,
           ease: "power3.inOut",
           css: { height: "100vh" },
         }),
         tl.to([menu, link1, link2, link3, link4, link5, link6], {
-          duration: 0.6,
+          duration: 0.8,
           ease: "power3.inOut",
           css: { display: "flex", opacity: 1 },
           stagger: {
@@ -44,7 +50,7 @@ const Navbar = () => {
           },
         }))
       : (tl.to([menu, link1, link2, link3, link4, link5, link6], {
-          duration: 0.6,
+          duration: 0.8,
           ease: "power3.inOut",
           css: { display: "none", opacity: 0 },
           stagger: {
@@ -52,7 +58,7 @@ const Navbar = () => {
           },
         }),
         tl.to(menuContainer, {
-          duration: 0.6,
+          duration: 0.8,
           ease: "power3.inOut",
           css: { height: "auto" },
         }));
@@ -65,35 +71,27 @@ const Navbar = () => {
         className="navbar__button"
         tabIndex={0}
       >
-        Menu
+        {clicked ? "Close" : "Menu"}
       </button>
       <div ref={(el) => (menu = el)} className="navbar__menu">
         <Link ref={(el) => (link1 = el)} onClick={handleMenuClick} to="/">
           Home
         </Link>
-        <Link ref={(el) => (link2 = el)} onClick={handleMenuClick} to="/asia">
+        <a id="asia" ref={(el) => (link2 = el)} onClick={handleLinkClick}>
           Go to Asia!
-        </Link>
-        <Link ref={(el) => (link3 = el)} onClick={handleMenuClick} to="/africa">
+        </a>
+        <a id="africa" ref={(el) => (link3 = el)} onClick={handleLinkClick}>
           Go to Africa!
-        </Link>
-        <Link
-          ref={(el) => (link4 = el)}
-          onClick={handleMenuClick}
-          to="/americas"
-        >
+        </a>
+        <a id="americas" ref={(el) => (link4 = el)} onClick={handleLinkClick}>
           Go to Amercias!
-        </Link>
-        <Link ref={(el) => (link5 = el)} onClick={handleMenuClick} to="/europe">
+        </a>
+        <a id="europe" ref={(el) => (link5 = el)} onClick={handleLinkClick}>
           Go to Europe!
-        </Link>
-        <Link
-          ref={(el) => (link6 = el)}
-          onClick={handleMenuClick}
-          to="/oceania"
-        >
+        </a>
+        <a id="oceania" ref={(el) => (link6 = el)} onClick={handleLinkClick}>
           Go to Oceania!
-        </Link>
+        </a>
       </div>
     </nav>
   );

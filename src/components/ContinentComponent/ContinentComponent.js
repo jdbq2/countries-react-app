@@ -4,6 +4,7 @@ import { connect } from "react-redux";
 import CountryCards from "../../components/CountryCards/CountryCards";
 import "./continent.scss";
 import gsap from "gsap";
+import Head from "../Head/Head";
 
 const ContinentComponent = ({ countries }) => {
   let title = useRef(null);
@@ -12,11 +13,12 @@ const ContinentComponent = ({ countries }) => {
   useEffect(() => {
     gsap.fromTo(
       [title, cards],
-      { css: { opacity: 0, y: -100 } },
+      { css: { opacity: 0 } },
       {
         duration: 0.8,
         ease: "circ.out",
-        css: { opacity: 1, y: 0 },
+        css: { opacity: 1 },
+        delay: 0.4,
         stagger: {
           amount: 0.4,
         },
@@ -25,6 +27,16 @@ const ContinentComponent = ({ countries }) => {
   }, []);
   return (
     <div className="countriesList">
+      <Head
+        pageTitle={`${
+          location.pathname.slice(1).charAt(0).toUpperCase() +
+          location.pathname.slice(2)
+        }`}
+        description={`Page to select a country in ${
+          location.pathname.slice(1).charAt(0).toUpperCase() +
+          location.pathname.slice(2)
+        }`}
+      />
       <h1 ref={(el) => (title = el)} className="countriesList__title">{`${
         location.pathname.slice(1).charAt(0).toUpperCase() +
         location.pathname.slice(2)

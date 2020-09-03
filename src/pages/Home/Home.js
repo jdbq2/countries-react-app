@@ -10,6 +10,7 @@ import europe from "../../assets/images/europe.jpg";
 import oceania from "../../assets/images/oceania.jpg";
 import all from "../../assets/images/all.jpg";
 import gsap from "gsap";
+import Head from "../../components/Head/Head";
 
 const continents = [
   {
@@ -67,6 +68,10 @@ const Home = () => {
 
   return (
     <div className="home">
+      <Head
+        pageTitle="Home Page"
+        description="Page to selecto a continet and get ifo about it"
+      />
       <h1 ref={(el) => (title = el)} className="home__title">
         Welcome!
       </h1>

@@ -1,10 +1,9 @@
 import React from "react";
-import { BrowserRouter, Route, Switch, matchPath } from "react-router-dom";
+import { BrowserRouter, Route } from "react-router-dom";
 import Layout from "../pages/Layout/Layout";
 import Home from "../pages/Home/Home";
 import Continent from "../pages/Continent/Continent";
 import Country from "../pages/Country/Country";
-import NotFound from "../pages/NotFound/NotFound";
 import { CSSTransition } from "react-transition-group";
 import "./_app.scss";
 import "./page.scss";
@@ -16,14 +15,14 @@ const routes = [
     name: "home",
   },
   {
-    path: "/:continent",
-    Component: Continent,
-    name: "all",
-  },
-  {
     path: "/:continent/:code",
     Component: Country,
-    name: "all",
+    name: "country",
+  },
+  {
+    path: "/:continent",
+    Component: Continent,
+    name: "countries",
   },
 ];
 
@@ -32,11 +31,11 @@ const App = () => {
     <BrowserRouter>
       <Layout>
         {routes.map(({ path, Component, name }) => (
-          <Route key={path} exact path={path}>
+          <Route key={path} exact={true} path={path}>
             {({ match }) => (
               <CSSTransition
                 in={match != null}
-                timeout={300}
+                timeout={400}
                 classNames="page"
                 unmountOnExit
               >
