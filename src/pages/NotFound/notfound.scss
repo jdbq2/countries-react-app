@@ -1,0 +1,31 @@
+@import "../../routes/app";
+
+.errorpage {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  &__title {
+    font-size: fs(XL);
+    text-align: center;
+  }
+  &__subtitle {
+    font-size: fs(L);
+    text-align: center;
+    margin-top: 20px;
+  }
+  &__button {
+    margin-top: 30px;
+    width: 300px;
+    height: 80px;
+    font-size: fs(L);
+    background-color: transparent;
+    border-radius: 20px;
+    box-shadow: $box-shadow;
+    transition: all 0.2s ease-in-out;
+    &:hover {
+      background-color: cl(Black);
+      color: cl(White);
+      border: 1px solid cl(Pink);
+    }
+  }
+}

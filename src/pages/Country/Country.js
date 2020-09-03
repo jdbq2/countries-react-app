@@ -3,6 +3,7 @@ import { connect } from "react-redux";
 import { fetchCountryData } from "../../actions/actions";
 import NotFound from "../Notfound/NotFound";
 import CountryComponent from "../../components/CountryComponent/CountryComponent";
+import Loader from "../../components/Loader/Loader";
 
 const Country = ({ fetchCountryData, country, loading }) => {
   useEffect(() => {
@@ -11,7 +12,7 @@ const Country = ({ fetchCountryData, country, loading }) => {
   return country.message ? (
     <NotFound />
   ) : loading ? (
-    <h1>LOADING...</h1>
+    <Loader />
   ) : (
     <CountryComponent />
   );

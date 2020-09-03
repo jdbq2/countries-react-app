@@ -2,16 +2,26 @@
 
 .maincards {
   background-color: cl(White);
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
   flex-direction: column;
   min-width: 300px;
   min-height: 300px;
   border-radius: 20px;
+  -webkit-box-shadow: $box-shadow;
   box-shadow: $box-shadow;
   overflow: hidden;
   position: relative;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
   align-items: center;
   margin: 10px;
+  -webkit-transition: all 0.2s ease-in-out;
+  -o-transition: all 0.2s ease-in-out;
   transition: all 0.2s ease-in-out;
   &:hover {
     background-color: cl(Black);
@@ -34,6 +44,8 @@
     bottom: 5%;
     font-size: fs(L);
     color: cl(Black);
+    -webkit-transition: all 0.5s ease-in-out;
+    -o-transition: all 0.5s ease-in-out;
     transition: all 0.5s ease-in-out;
   }
 }
