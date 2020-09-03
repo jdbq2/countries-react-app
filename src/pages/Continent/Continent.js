@@ -12,10 +12,10 @@ const Continent = ({
   fetchGlobalData,
 }) => {
   useEffect(() => {
-    if (location.pathname === "/all") {
+    if (location.pathname.split("/")[2] === "all") {
       fetchGlobalData();
     } else {
-      fetchContinentData(location.pathname.slice(1));
+      fetchContinentData(location.pathname.split("/")[2]);
     }
   }, []);
   return countries.message ? (

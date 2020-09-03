@@ -23,7 +23,7 @@ const Navbar = () => {
   const handleLinkClick = (e) => {
     setClicked(!clicked);
     disabledButton();
-    location.pathname = e.target.id;
+    location.pathname = `/countries-react-app/${e.target.id}`;
   };
 
   const disabledButton = () => {
@@ -74,7 +74,11 @@ const Navbar = () => {
         {clicked ? "Close" : "Menu"}
       </button>
       <div ref={(el) => (menu = el)} className="navbar__menu">
-        <Link ref={(el) => (link1 = el)} onClick={handleMenuClick} to="/">
+        <Link
+          ref={(el) => (link1 = el)}
+          onClick={handleMenuClick}
+          to="/countries-react-app"
+        >
           Home
         </Link>
         <a id="asia" ref={(el) => (link2 = el)} onClick={handleLinkClick}>

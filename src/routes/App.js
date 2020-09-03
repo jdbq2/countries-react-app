@@ -10,17 +10,17 @@ import "./page.scss";
 
 const routes = [
   {
-    path: "/",
+    path: "/countries-react-app/",
     Component: Home,
     name: "home",
   },
   {
-    path: "/:continent/:code",
+    path: "/countries-react-app/:continent/:code",
     Component: Country,
     name: "country",
   },
   {
-    path: "/:continent",
+    path: "/countries-react-app/:continent",
     Component: Continent,
     name: "countries",
   },

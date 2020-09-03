@@ -37804,7 +37804,7 @@ var Navbar = function Navbar() {
   var handleLinkClick = function handleLinkClick(e) {
     setClicked(!clicked);
     disabledButton();
-    location.pathname = e.target.id;
+    location.pathname = "/countries-react-app/".concat(e.target.id);
   };
 
   var disabledButton = function disabledButton() {
@@ -37871,7 +37871,7 @@ var Navbar = function Navbar() {
       return link1 = el;
     },
     onClick: handleMenuClick,
-    to: "/"
+    to: "/countries-react-app"
   }, "Home"), /*#__PURE__*/_react.default.createElement("a", {
     id: "asia",
     ref: function ref(el) {
@@ -41613,27 +41613,27 @@ function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj;
 
 var continents = [{
   name: "Asia",
-  code: "asia",
+  code: "countries-react-app/asia",
   image: _asia.default
 }, {
   name: "Africa",
-  code: "africa",
+  code: "countries-react-app/africa",
   image: _africa.default
 }, {
   name: "Americas",
-  code: "americas",
+  code: "countries-react-app/americas",
   image: _americas.default
 }, {
   name: "Oceania",
-  code: "oceania",
+  code: "countries-react-app/oceania",
   image: _oceania.default
 }, {
   name: "Europe",
-  code: "europe",
+  code: "countries-react-app/europe",
   image: _europe.default
 }, {
   name: "All",
-  code: "all",
+  code: "countries-react-app/all",
   image: _all.default
 }];
 
@@ -41900,17 +41900,18 @@ var ContinentComponent = function ContinentComponent(_ref) {
       }
     });
   }, []);
+  console.log();
   return /*#__PURE__*/_react.default.createElement("div", {
     className: "countriesList"
   }, /*#__PURE__*/_react.default.createElement(_Head.default, {
-    pageTitle: "".concat(location.pathname.slice(1).charAt(0).toUpperCase() + location.pathname.slice(2)),
-    description: "Page to select a country in ".concat(location.pathname.slice(1).charAt(0).toUpperCase() + location.pathname.slice(2))
+    pageTitle: "".concat(location.pathname.split("/")[2].charAt(0).toUpperCase() + location.pathname.split("/")[2].slice(1)),
+    description: "Page to select a country in ".concat(location.pathname.split("/")[2].charAt(0).toUpperCase() + location.pathname.split("/")[2].slice(1))
   }), /*#__PURE__*/_react.default.createElement("h1", {
     ref: function ref(el) {
       return title = el;
     },
     className: "countriesList__title"
-  }, "".concat(location.pathname.slice(1).charAt(0).toUpperCase() + location.pathname.slice(2), " countries")), /*#__PURE__*/_react.default.createElement("div", {
+  }, "".concat(location.pathname.split("/")[2].charAt(0).toUpperCase() + location.pathname.split("/")[2].slice(1), " countries")), /*#__PURE__*/_react.default.createElement("div", {
     ref: function ref(el) {
       return cards = el;
     },
@@ -42005,10 +42006,10 @@ var Continent = function Continent(_ref) {
       fetchContinentData = _ref.fetchContinentData,
       fetchGlobalData = _ref.fetchGlobalData;
   (0, _react.useEffect)(function () {
-    if (location.pathname === "/all") {
+    if (location.pathname.split("/")[2] === "all") {
       fetchGlobalData();
     } else {
-      fetchContinentData(location.pathname.slice(1));
+      fetchContinentData(location.pathname.split("/")[2]);
     }
   }, []);
   return countries.message ? /*#__PURE__*/_react.default.createElement(_NotFound.default, null) : loading ? /*#__PURE__*/_react.default.createElement(_Loader.default, null) : /*#__PURE__*/_react.default.createElement(_ContinentComponent.default, null);
@@ -45315,15 +45316,15 @@ require("./page.scss");
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var routes = [{
-  path: "/",
+  path: "/countries-react-app/",
   Component: _Home.default,
   name: "home"
 }, {
-  path: "/:continent/:code",
+  path: "/countries-react-app/:continent/:code",
   Component: _Country.default,
   name: "country"
 }, {
-  path: "/:continent",
+  path: "/countries-react-app/:continent",
   Component: _Continent.default,
   name: "countries"
 }];
@@ -45476,7 +45477,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "51296" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "52108" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

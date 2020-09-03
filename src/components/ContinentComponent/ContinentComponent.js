@@ -25,21 +25,22 @@ const ContinentComponent = ({ countries }) => {
       }
     );
   }, []);
+  console.log();
   return (
     <div className="countriesList">
       <Head
         pageTitle={`${
-          location.pathname.slice(1).charAt(0).toUpperCase() +
-          location.pathname.slice(2)
+          location.pathname.split("/")[2].charAt(0).toUpperCase() +
+          location.pathname.split("/")[2].slice(1)
         }`}
         description={`Page to select a country in ${
-          location.pathname.slice(1).charAt(0).toUpperCase() +
-          location.pathname.slice(2)
+          location.pathname.split("/")[2].charAt(0).toUpperCase() +
+          location.pathname.split("/")[2].slice(1)
         }`}
       />
       <h1 ref={(el) => (title = el)} className="countriesList__title">{`${
-        location.pathname.slice(1).charAt(0).toUpperCase() +
-        location.pathname.slice(2)
+        location.pathname.split("/")[2].charAt(0).toUpperCase() +
+        location.pathname.split("/")[2].slice(1)
       } countries`}</h1>
       <div ref={(el) => (cards = el)} className="countriesList__cards">
         {countries.map((country) => (
