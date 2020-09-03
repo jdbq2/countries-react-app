@@ -15,32 +15,32 @@ import Head from "../../components/Head/Head";
 const continents = [
   {
     name: "Asia",
-    code: "countries-react-app/asia",
+    code: "asia",
     image: asia,
   },
   {
     name: "Africa",
-    code: "countries-react-app/africa",
+    code: "africa",
     image: africa,
   },
   {
     name: "Americas",
-    code: "countries-react-app/americas",
+    code: "americas",
     image: americas,
   },
   {
     name: "Oceania",
-    code: "countries-react-app/oceania",
+    code: "oceania",
     image: oceania,
   },
   {
     name: "Europe",
-    code: "countries-react-app/europe",
+    code: "europe",
     image: europe,
   },
   {
     name: "All",
-    code: "countries-react-app/all",
+    code: "all",
     image: all,
   },
 ];

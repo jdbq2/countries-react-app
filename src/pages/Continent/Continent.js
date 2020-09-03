@@ -4,6 +4,7 @@ import { fetchGlobalData, fetchContinentData } from "../../actions/actions";
 import Loader from "../../components/Loader/Loader";
 import ContinentComponent from "../../components/ContinentComponent/ContinentComponent";
 import NotFound from "../Notfound/NotFound";
+import { matchPath } from "react-router-dom";
 
 const Continent = ({
   countries,
@@ -12,10 +13,10 @@ const Continent = ({
   fetchGlobalData,
 }) => {
   useEffect(() => {
-    if (location.pathname.split("/")[2] === "all") {
+    if (location.hash.split("/")[1] === "all") {
       fetchGlobalData();
     } else {
-      fetchContinentData(location.pathname.split("/")[2]);
+      fetchContinentData(location.hash.split("/")[1]);
     }
   }, []);
   return countries.message ? (

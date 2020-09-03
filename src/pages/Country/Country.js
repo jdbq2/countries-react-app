@@ -7,7 +7,7 @@ import Loader from "../../components/Loader/Loader";
 
 const Country = ({ fetchCountryData, country, loading }) => {
   useEffect(() => {
-    fetchCountryData(location.pathname.split("/").slice(-1).join(""));
+    fetchCountryData(location.hash.split("/")[2]);
   }, []);
   return country.message ? (
     <NotFound />

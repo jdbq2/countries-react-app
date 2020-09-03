@@ -37801,12 +37801,6 @@ var Navbar = function Navbar() {
     disabledButton();
   };
 
-  var handleLinkClick = function handleLinkClick(e) {
-    setClicked(!clicked);
-    disabledButton();
-    location.pathname = "/countries-react-app/".concat(e.target.id);
-  };
-
   var disabledButton = function disabledButton() {
     setDisabled(!disabled);
     setTimeout(function () {
@@ -37871,37 +37865,37 @@ var Navbar = function Navbar() {
       return link1 = el;
     },
     onClick: handleMenuClick,
-    to: "/countries-react-app"
-  }, "Home"), /*#__PURE__*/_react.default.createElement("a", {
-    id: "asia",
+    to: "/"
+  }, "Home"), /*#__PURE__*/_react.default.createElement(_reactRouterDom.Link, {
+    to: "/asia",
     ref: function ref(el) {
       return link2 = el;
     },
-    onClick: handleLinkClick
-  }, "Go to Asia!"), /*#__PURE__*/_react.default.createElement("a", {
-    id: "africa",
+    onClick: handleMenuClick
+  }, "Go to Asia!"), /*#__PURE__*/_react.default.createElement(_reactRouterDom.Link, {
+    to: "/africa",
     ref: function ref(el) {
       return link3 = el;
     },
-    onClick: handleLinkClick
-  }, "Go to Africa!"), /*#__PURE__*/_react.default.createElement("a", {
-    id: "americas",
+    onClick: handleMenuClick
+  }, "Go to Africa!"), /*#__PURE__*/_react.default.createElement(_reactRouterDom.Link, {
+    to: "/americas",
     ref: function ref(el) {
       return link4 = el;
     },
-    onClick: handleLinkClick
-  }, "Go to Amercias!"), /*#__PURE__*/_react.default.createElement("a", {
-    id: "europe",
+    onClick: handleMenuClick
+  }, "Go to Amercias!"), /*#__PURE__*/_react.default.createElement(_reactRouterDom.Link, {
+    to: "/europe",
     ref: function ref(el) {
       return link5 = el;
     },
-    onClick: handleLinkClick
-  }, "Go to Europe!"), /*#__PURE__*/_react.default.createElement("a", {
-    id: "oceania",
+    onClick: handleMenuClick
+  }, "Go to Europe!"), /*#__PURE__*/_react.default.createElement(_reactRouterDom.Link, {
+    to: "/oceania",
     ref: function ref(el) {
       return link6 = el;
     },
-    onClick: handleLinkClick
+    onClick: handleMenuClick
   }, "Go to Oceania!")));
 };
 
@@ -41613,27 +41607,27 @@ function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj;
 
 var continents = [{
   name: "Asia",
-  code: "countries-react-app/asia",
+  code: "asia",
   image: _asia.default
 }, {
   name: "Africa",
-  code: "countries-react-app/africa",
+  code: "africa",
   image: _africa.default
 }, {
   name: "Americas",
-  code: "countries-react-app/americas",
+  code: "americas",
   image: _americas.default
 }, {
   name: "Oceania",
-  code: "countries-react-app/oceania",
+  code: "oceania",
   image: _oceania.default
 }, {
   name: "Europe",
-  code: "countries-react-app/europe",
+  code: "europe",
   image: _europe.default
 }, {
   name: "All",
-  code: "countries-react-app/all",
+  code: "all",
   image: _all.default
 }];
 
@@ -41900,18 +41894,17 @@ var ContinentComponent = function ContinentComponent(_ref) {
       }
     });
   }, []);
-  console.log();
   return /*#__PURE__*/_react.default.createElement("div", {
     className: "countriesList"
   }, /*#__PURE__*/_react.default.createElement(_Head.default, {
-    pageTitle: "".concat(location.pathname.split("/")[2].charAt(0).toUpperCase() + location.pathname.split("/")[2].slice(1)),
-    description: "Page to select a country in ".concat(location.pathname.split("/")[2].charAt(0).toUpperCase() + location.pathname.split("/")[2].slice(1))
+    pageTitle: "".concat(location.hash.split("/")[1].charAt(0).toUpperCase() + location.hash.split("/")[1].slice(1)),
+    description: "Page to select a country in ".concat(location.hash.split("/")[1].charAt(0).toUpperCase() + location.hash.split("/")[1].slice(1))
   }), /*#__PURE__*/_react.default.createElement("h1", {
     ref: function ref(el) {
       return title = el;
     },
     className: "countriesList__title"
-  }, "".concat(location.pathname.split("/")[2].charAt(0).toUpperCase() + location.pathname.split("/")[2].slice(1), " countries")), /*#__PURE__*/_react.default.createElement("div", {
+  }, "".concat(location.hash.split("/")[1].charAt(0).toUpperCase() + location.hash.split("/")[1].slice(1), " countries")), /*#__PURE__*/_react.default.createElement("div", {
     ref: function ref(el) {
       return cards = el;
     },
@@ -41919,7 +41912,7 @@ var ContinentComponent = function ContinentComponent(_ref) {
   }, countries.map(function (country) {
     return /*#__PURE__*/_react.default.createElement(_reactRouterDom.Link, {
       key: country.alpha3Code,
-      to: "".concat(location.pathname, "/").concat(country.alpha3Code.toLowerCase())
+      to: "".concat(location.hash.split("/")[1], "/").concat(country.alpha3Code.toLowerCase())
     }, /*#__PURE__*/_react.default.createElement(_CountryCards.default, {
       name: country.name,
       subregion: country.subregion,
@@ -41994,6 +41987,8 @@ var _ContinentComponent = _interopRequireDefault(require("../../components/Conti
 
 var _NotFound = _interopRequireDefault(require("../Notfound/NotFound"));
 
+var _reactRouterDom = require("react-router-dom");
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _getRequireWildcardCache() { if (typeof WeakMap !== "function") return null; var cache = new WeakMap(); _getRequireWildcardCache = function () { return cache; }; return cache; }
@@ -42006,10 +42001,10 @@ var Continent = function Continent(_ref) {
       fetchContinentData = _ref.fetchContinentData,
       fetchGlobalData = _ref.fetchGlobalData;
   (0, _react.useEffect)(function () {
-    if (location.pathname.split("/")[2] === "all") {
+    if (location.hash.split("/")[1] === "all") {
       fetchGlobalData();
     } else {
-      fetchContinentData(location.pathname.split("/")[2]);
+      fetchContinentData(location.hash.split("/")[1]);
     }
   }, []);
   return countries.message ? /*#__PURE__*/_react.default.createElement(_NotFound.default, null) : loading ? /*#__PURE__*/_react.default.createElement(_Loader.default, null) : /*#__PURE__*/_react.default.createElement(_ContinentComponent.default, null);
@@ -42030,7 +42025,7 @@ var mapDispatchToProps = {
 var _default = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(Continent);
 
 exports.default = _default;
-},{"react":"../node_modules/react/index.js","react-redux":"../node_modules/react-redux/es/index.js","../../actions/actions":"actions/actions.js","../../components/Loader/Loader":"components/Loader/Loader.js","../../components/ContinentComponent/ContinentComponent":"components/ContinentComponent/ContinentComponent.js","../Notfound/NotFound":"pages/Notfound/NotFound.js"}],"components/CountryComponent/countrycomponent.scss":[function(require,module,exports) {
+},{"react":"../node_modules/react/index.js","react-redux":"../node_modules/react-redux/es/index.js","../../actions/actions":"actions/actions.js","../../components/Loader/Loader":"components/Loader/Loader.js","../../components/ContinentComponent/ContinentComponent":"components/ContinentComponent/ContinentComponent.js","../Notfound/NotFound":"pages/Notfound/NotFound.js","react-router-dom":"../node_modules/react-router-dom/esm/react-router-dom.js"}],"components/CountryComponent/countrycomponent.scss":[function(require,module,exports) {
 var reloadCSS = require('_css_loader');
 
 module.hot.dispose(reloadCSS);
@@ -43230,7 +43225,7 @@ var Country = function Country(_ref) {
       country = _ref.country,
       loading = _ref.loading;
   (0, _react.useEffect)(function () {
-    fetchCountryData(location.pathname.split("/").slice(-1).join(""));
+    fetchCountryData(location.hash.split("/")[2]);
   }, []);
   return country.message ? /*#__PURE__*/_react.default.createElement(_NotFound.default, null) : loading ? /*#__PURE__*/_react.default.createElement(_Loader.default, null) : /*#__PURE__*/_react.default.createElement(_CountryComponent.default, null);
 };
@@ -45316,21 +45311,43 @@ require("./page.scss");
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var routes = [{
-  path: "/countries-react-app/",
+  path: "/",
   Component: _Home.default,
   name: "home"
 }, {
-  path: "/countries-react-app/:continent/:code",
+  path: "/:continent/:code",
   Component: _Country.default,
   name: "country"
 }, {
-  path: "/countries-react-app/:continent",
+  path: "/:continent",
   Component: _Continent.default,
   name: "countries"
+}, {
+  path: "/asia",
+  Component: _Continent.default,
+  name: "asia"
+}, {
+  path: "/europe",
+  Component: _Continent.default,
+  name: "asia"
+}, {
+  path: "/americas",
+  Component: _Continent.default,
+  name: "asia"
+}, {
+  path: "/africa",
+  Component: _Continent.default,
+  name: "asia"
+}, {
+  path: "/oceania",
+  Component: _Continent.default,
+  name: "asia"
 }];
 
 var App = function App() {
-  return /*#__PURE__*/_react.default.createElement(_reactRouterDom.BrowserRouter, null, /*#__PURE__*/_react.default.createElement(_Layout.default, null, routes.map(function (_ref) {
+  return /*#__PURE__*/_react.default.createElement(_reactRouterDom.HashRouter, {
+    basename: "/"
+  }, /*#__PURE__*/_react.default.createElement(_Layout.default, null, routes.map(function (_ref) {
     var path = _ref.path,
         Component = _ref.Component,
         name = _ref.name;
@@ -45477,7 +45494,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "52108" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "53225" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

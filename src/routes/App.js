@@ -1,5 +1,5 @@
 import React from "react";
-import { BrowserRouter, Route } from "react-router-dom";
+import { HashRouter, Route } from "react-router-dom";
 import Layout from "../pages/Layout/Layout";
 import Home from "../pages/Home/Home";
 import Continent from "../pages/Continent/Continent";
@@ -10,25 +10,50 @@ import "./page.scss";
 
 const routes = [
   {
-    path: "/countries-react-app/",
+    path: "/",
     Component: Home,
     name: "home",
   },
   {
-    path: "/countries-react-app/:continent/:code",
+    path: "/:continent/:code",
     Component: Country,
     name: "country",
   },
   {
-    path: "/countries-react-app/:continent",
+    path: "/:continent",
     Component: Continent,
     name: "countries",
+  },
+  {
+    path: "/asia",
+    Component: Continent,
+    name: "asia",
+  },
+  {
+    path: "/europe",
+    Component: Continent,
+    name: "asia",
+  },
+  {
+    path: "/americas",
+    Component: Continent,
+    name: "asia",
+  },
+  {
+    path: "/africa",
+    Component: Continent,
+    name: "asia",
+  },
+  {
+    path: "/oceania",
+    Component: Continent,
+    name: "asia",
   },
 ];
 
 const App = () => {
   return (
-    <BrowserRouter>
+    <HashRouter basename="/">
       <Layout>
         {routes.map(({ path, Component, name }) => (
           <Route key={path} exact={true} path={path}>
@@ -47,7 +72,7 @@ const App = () => {
           </Route>
         ))}
       </Layout>
-    </BrowserRouter>
+    </HashRouter>
   );
 };
 

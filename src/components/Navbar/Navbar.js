@@ -20,12 +20,6 @@ const Navbar = () => {
     disabledButton();
   };
 
-  const handleLinkClick = (e) => {
-    setClicked(!clicked);
-    disabledButton();
-    location.pathname = `/countries-react-app/${e.target.id}`;
-  };
-
   const disabledButton = () => {
     setDisabled(!disabled);
     setTimeout(() => {
@@ -74,28 +68,32 @@ const Navbar = () => {
         {clicked ? "Close" : "Menu"}
       </button>
       <div ref={(el) => (menu = el)} className="navbar__menu">
-        <Link
-          ref={(el) => (link1 = el)}
-          onClick={handleMenuClick}
-          to="/countries-react-app"
-        >
+        <Link ref={(el) => (link1 = el)} onClick={handleMenuClick} to="/">
           Home
         </Link>
-        <a id="asia" ref={(el) => (link2 = el)} onClick={handleLinkClick}>
+        <Link to="/asia" ref={(el) => (link2 = el)} onClick={handleMenuClick}>
           Go to Asia!
-        </a>
-        <a id="africa" ref={(el) => (link3 = el)} onClick={handleLinkClick}>
+        </Link>
+        <Link to="/africa" ref={(el) => (link3 = el)} onClick={handleMenuClick}>
           Go to Africa!
-        </a>
-        <a id="americas" ref={(el) => (link4 = el)} onClick={handleLinkClick}>
+        </Link>
+        <Link
+          to="/americas"
+          ref={(el) => (link4 = el)}
+          onClick={handleMenuClick}
+        >
           Go to Amercias!
-        </a>
-        <a id="europe" ref={(el) => (link5 = el)} onClick={handleLinkClick}>
+        </Link>
+        <Link to="/europe" ref={(el) => (link5 = el)} onClick={handleMenuClick}>
           Go to Europe!
-        </a>
-        <a id="oceania" ref={(el) => (link6 = el)} onClick={handleLinkClick}>
+        </Link>
+        <Link
+          to="/oceania"
+          ref={(el) => (link6 = el)}
+          onClick={handleMenuClick}
+        >
           Go to Oceania!
-        </a>
+        </Link>
       </div>
     </nav>
   );
