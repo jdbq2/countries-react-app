@@ -31,7 +31,7 @@
     max-width: 80%;
     max-height: 80%;
     overflow: hidden;
-    margin-top: 20px;
+    margin-top: 10px;
     @include respond-to(tabletXL) {
       max-width: 60%;
     }

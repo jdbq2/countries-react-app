@@ -1,5 +1,4 @@
 @import "../../routes/app";
-
 .navbar {
   width: 100%;
   display: -webkit-box;
@@ -30,6 +29,7 @@
     font-weight: bold;
     margin: 20px;
     cursor: pointer;
+    -webkit-box-shadow: $box-shadow;
     box-shadow: $box-shadow;
     -webkit-transition: all 0.2s ease-in-out;
     -o-transition: all 0.2s ease-in-out;

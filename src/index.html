@@ -2,7 +2,11 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" href="/public/favicon.ico" />
+    <link rel="apple-touch-icon" href="/public/logo192.png" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#000000" />
+    <link rel="manifest" href="/manifest.webmanifest" />
     <title>Document</title>
   </head>
   <body>
@@ -12,5 +16,33 @@
       ><h1>This App need JavaScript to work, please enable it</h1></noscript
     >
     <script src="./index.js"></script>
+    <script>
+      const sw = "service-worker.js";
+      navigator.serviceWorker
+        .register(sw)
+        .then((registration) => {
+          registration.onupdatefound = () => {
+            const installingWorker = registration.installing;
+            if (installingWorker == null) {
+              return;
+            }
+            installingWorker.onstatechange = () => {
+              if (installingWorker.state === "installed") {
+                if (navigator.serviceWorker.controller) {
+                  console.log(
+                    "New content is available and will be used when all " +
+                      "tabs for this page are closed. See https://bit.ly/CRA-PWA."
+                  );
+                } else {
+                  console.log("Content is cached for offline use.");
+                }
+              }
+            };
+          };
+        })
+        .catch((error) => {
+          console.error("Error during service worker registration:", error);
+        });
+    </script>
   </body>
 </html>
