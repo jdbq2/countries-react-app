@@ -14,7 +14,32 @@ const routes = [
     name: "home",
   },
   {
-    path: "/:continent/:code",
+    path: "/asia/:code",
+    Component: Country,
+    name: "country",
+  },
+  {
+    path: "/africa/:code",
+    Component: Country,
+    name: "country",
+  },
+  {
+    path: "/americas/:code",
+    Component: Country,
+    name: "country",
+  },
+  {
+    path: "/europe/:code",
+    Component: Country,
+    name: "country",
+  },
+  {
+    path: "/oceania/:code",
+    Component: Country,
+    name: "country",
+  },
+  {
+    path: "/all/:code",
     Component: Country,
     name: "country",
   },

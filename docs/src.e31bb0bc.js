@@ -2204,9 +2204,9 @@ if ("development" !== "production") {
 'use strict';
 
 if ("development" === 'production') {
-  module.exports = require('./cjs/react.production.min.js');
+  module.exports = require('./cjs/react.production.min.js.js');
 } else {
-  module.exports = require('./cjs/react.development.js');
+  module.exports = require('./cjs/react.development.js.js');
 }
 },{"./cjs/react.development.js":"../node_modules/react/cjs/react.development.js"}],"../node_modules/scheduler/cjs/scheduler.development.js":[function(require,module,exports) {
 /** @license React v0.19.1
@@ -3067,9 +3067,9 @@ if ("development" !== "production") {
 'use strict';
 
 if ("development" === 'production') {
-  module.exports = require('./cjs/scheduler.production.min.js');
+  module.exports = require('./cjs/scheduler.production.min.js.js');
 } else {
-  module.exports = require('./cjs/scheduler.development.js');
+  module.exports = require('./cjs/scheduler.development.js.js');
 }
 },{"./cjs/scheduler.development.js":"../node_modules/scheduler/cjs/scheduler.development.js"}],"../node_modules/scheduler/cjs/scheduler-tracing.development.js":[function(require,module,exports) {
 /** @license React v0.19.1
@@ -3423,9 +3423,9 @@ if ("development" !== "production") {
 'use strict';
 
 if ("development" === 'production') {
-  module.exports = require('./cjs/scheduler-tracing.production.min.js');
+  module.exports = require('./cjs/scheduler-tracing.production.min.js.js');
 } else {
-  module.exports = require('./cjs/scheduler-tracing.development.js');
+  module.exports = require('./cjs/scheduler-tracing.development.js.js');
 }
 },{"./cjs/scheduler-tracing.development.js":"../node_modules/scheduler/cjs/scheduler-tracing.development.js"}],"../node_modules/react-dom/cjs/react-dom.development.js":[function(require,module,exports) {
 /** @license React v16.13.1
@@ -28281,9 +28281,9 @@ if ("development" === 'production') {
   // DCE check should happen before ReactDOM bundle executes so that
   // DevTools can report bad minification during injection.
   checkDCE();
-  module.exports = require('./cjs/react-dom.production.min.js');
+  module.exports = require('./cjs/react-dom.production.min.js.js');
 } else {
-  module.exports = require('./cjs/react-dom.development.js');
+  module.exports = require('./cjs/react-dom.development.js.js');
 }
 },{"./cjs/react-dom.development.js":"../node_modules/react-dom/cjs/react-dom.development.js"}],"../node_modules/@babel/runtime/helpers/esm/inheritsLoose.js":[function(require,module,exports) {
 "use strict";
@@ -28492,9 +28492,9 @@ if ("development" !== "production") {
 'use strict';
 
 if ("development" === 'production') {
-  module.exports = require('./cjs/react-is.production.min.js');
+  module.exports = require('./cjs/react-is.production.min.js.js');
 } else {
-  module.exports = require('./cjs/react-is.development.js');
+  module.exports = require('./cjs/react-is.development.js.js');
 }
 },{"./cjs/react-is.development.js":"../node_modules/react-is/cjs/react-is.development.js"}],"../node_modules/prop-types/factoryWithTypeCheckers.js":[function(require,module,exports) {
 /**
@@ -36135,7 +36135,7 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.checkPrefix = exports._createElement = exports._getBBox = exports.default = exports.CSSPlugin = void 0;
 
-var _gsapCore = require("./gsap-core.js");
+var _gsapCore = require("./gsap-core.js.js");
 
 /*!
  * CSSPlugin 3.5.1
@@ -37660,9 +37660,9 @@ Object.defineProperty(exports, "CSSPlugin", {
 });
 exports.TweenMax = exports.default = exports.gsap = void 0;
 
-var _gsapCore = require("./gsap-core.js");
+var _gsapCore = require("./gsap-core.js.js");
 
-var _CSSPlugin = require("./CSSPlugin.js");
+var _CSSPlugin = require("./CSSPlugin.js.js");
 
 var gsapWithCSS = _gsapCore.gsap.registerPlugin(_CSSPlugin.CSSPlugin) || _gsapCore.gsap,
     // to protect from tree shaking
@@ -38685,7 +38685,7 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.default = void 0;
 
-var _ponyfill = _interopRequireDefault(require("./ponyfill.js"));
+var _ponyfill = _interopRequireDefault(require("./ponyfill.js.js"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -42006,7 +42006,6 @@ var Continent = function Continent(_ref) {
       fetchContinentData(location.hash.split("/")[1]);
     }
   }, []);
-  console.log(countries);
   return countries.length < 1 ? /*#__PURE__*/_react.default.createElement(_NotFound.default, null) : loading ? /*#__PURE__*/_react.default.createElement(_Loader.default, null) : /*#__PURE__*/_react.default.createElement(_ContinentComponent.default, null);
 };
 
@@ -43227,7 +43226,10 @@ var Country = function Country(_ref) {
   (0, _react.useEffect)(function () {
     fetchCountryData(location.hash.split("/")[2]);
   }, []);
-  return country.message ? /*#__PURE__*/_react.default.createElement(_NotFound.default, null) : loading ? /*#__PURE__*/_react.default.createElement(_Loader.default, null) : /*#__PURE__*/_react.default.createElement(_CountryComponent.default, null);
+  var hashContinent = location.hash.split("/")[1].charAt(0).toUpperCase() + location.hash.split("/")[1].slice(1);
+  var fetchContinent = country.region;
+  var autorizedRoutePath = location.hash.split("/")[1] === "all" ? false : hashContinent === fetchContinent ? false : true;
+  return !country.message && autorizedRoutePath ? /*#__PURE__*/_react.default.createElement(_NotFound.default, null) : loading ? /*#__PURE__*/_react.default.createElement(_Loader.default, null) : /*#__PURE__*/_react.default.createElement(_CountryComponent.default, null);
 };
 
 var mapStateToProps = function mapStateToProps(state) {
@@ -43280,7 +43282,27 @@ var routes = [{
   Component: _Home.default,
   name: "home"
 }, {
-  path: "/:continent/:code",
+  path: "/asia/:code",
+  Component: _Country.default,
+  name: "country"
+}, {
+  path: "/africa/:code",
+  Component: _Country.default,
+  name: "country"
+}, {
+  path: "/americas/:code",
+  Component: _Country.default,
+  name: "country"
+}, {
+  path: "/europe/:code",
+  Component: _Country.default,
+  name: "country"
+}, {
+  path: "/oceania/:code",
+  Component: _Country.default,
+  name: "country"
+}, {
+  path: "/all/:code",
   Component: _Country.default,
   name: "country"
 }, {
@@ -43452,7 +43474,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "55397" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "53496" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

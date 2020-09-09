@@ -1,0 +1,11 @@
+@function fs($fontSize) {
+  @return map-get($fs, $fontSize);
+}
+
+@function cl($color) {
+  @return map-get($cls, $color);
+}
+
+@function mw($screen) {
+  @return map-get($bp, $screen);
+}

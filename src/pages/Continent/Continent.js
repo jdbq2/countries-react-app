@@ -18,7 +18,6 @@ const Continent = ({
       fetchContinentData(location.hash.split("/")[1]);
     }
   }, []);
-  console.log(countries);
   return countries.length < 1 ? (
     <NotFound />
   ) : loading ? (

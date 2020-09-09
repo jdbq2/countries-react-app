@@ -1,9 +1,13 @@
 * {
   -webkit-appearance: none;
   -webkit-box-sizing: border-box;
-  box-sizing: border-box;
+  box-sizing: inherit;
   margin: 0;
   padding: 0;
+}
+
+html {
+  box-sizing: border-box;
 }
 
 .app {
@@ -107,9 +111,13 @@
 * {
   -webkit-appearance: none;
   -webkit-box-sizing: border-box;
-  box-sizing: border-box;
+  box-sizing: inherit;
   margin: 0;
   padding: 0;
+}
+
+html {
+  box-sizing: border-box;
 }
 
 .app {
@@ -181,9 +189,13 @@
 * {
   -webkit-appearance: none;
   -webkit-box-sizing: border-box;
-  box-sizing: border-box;
+  box-sizing: inherit;
   margin: 0;
   padding: 0;
+}
+
+html {
+  box-sizing: border-box;
 }
 
 .app {
@@ -245,9 +257,13 @@
 * {
   -webkit-appearance: none;
   -webkit-box-sizing: border-box;
-  box-sizing: border-box;
+  box-sizing: inherit;
   margin: 0;
   padding: 0;
+}
+
+html {
+  box-sizing: border-box;
 }
 
 .app {
@@ -286,9 +302,13 @@
 * {
   -webkit-appearance: none;
   -webkit-box-sizing: border-box;
-  box-sizing: border-box;
+  box-sizing: inherit;
   margin: 0;
   padding: 0;
+}
+
+html {
+  box-sizing: border-box;
 }
 
 .app {
@@ -377,9 +397,13 @@
 * {
   -webkit-appearance: none;
   -webkit-box-sizing: border-box;
-  box-sizing: border-box;
+  box-sizing: inherit;
   margin: 0;
   padding: 0;
+}
+
+html {
+  box-sizing: border-box;
 }
 
 .app {
@@ -435,9 +459,13 @@
 * {
   -webkit-appearance: none;
   -webkit-box-sizing: border-box;
-  box-sizing: border-box;
+  box-sizing: inherit;
   margin: 0;
   padding: 0;
+}
+
+html {
+  box-sizing: border-box;
 }
 
 .app {
@@ -499,9 +527,13 @@
 * {
   -webkit-appearance: none;
   -webkit-box-sizing: border-box;
-  box-sizing: border-box;
+  box-sizing: inherit;
   margin: 0;
   padding: 0;
+}
+
+html {
+  box-sizing: border-box;
 }
 
 .app {
@@ -639,9 +671,13 @@
 * {
   -webkit-appearance: none;
   -webkit-box-sizing: border-box;
-  box-sizing: border-box;
+  box-sizing: inherit;
   margin: 0;
   padding: 0;
+}
+
+html {
+  box-sizing: border-box;
 }
 
 .app {
