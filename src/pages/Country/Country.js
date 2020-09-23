@@ -23,10 +23,10 @@ const Country = ({ fetchCountryData, country, loading }) => {
       ? false
       : true;
 
-  return !country.message && autorizedRoutePath ? (
-    <NotFound />
-  ) : loading ? (
+  return loading ? (
     <Loader />
+  ) : !country.message && autorizedRoutePath ? (
+    <NotFound />
   ) : (
     <CountryComponent />
   );

@@ -18,13 +18,7 @@ const Continent = ({
       fetchContinentData(location.hash.split("/")[1]);
     }
   }, []);
-  return countries.length < 1 ? (
-    <NotFound />
-  ) : loading ? (
-    <Loader />
-  ) : (
-    <ContinentComponent />
-  );
+  return loading ? <Loader /> : <ContinentComponent />;
 };
 
 const mapStateToProps = (state) => {
