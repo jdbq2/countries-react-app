@@ -15,17 +15,27 @@ const Country = ({ fetchCountryData, country, loading }) => {
     location.hash.split("/")[1].slice(1);
 
   const fetchContinent = country.region;
+  console.log(loading, country, location.hash.split("/")[1]);
 
-  const autorizedRoutePath =
-    location.hash.split("/")[1] === "all"
-      ? false
-      : hashContinent === fetchContinent
-      ? false
-      : true;
+  const validation = () => {
+    if (location.hash.split("/")[1] === "all") {
+      if (country.message) {
+        return true;
+      } else {
+        return false;
+      }
+    } else {
+      if (hashContinent === fetchContinent) {
+        return false;
+      } else {
+        return true;
+      }
+    }
+  };
 
   return loading ? (
     <Loader />
-  ) : !country.message && autorizedRoutePath ? (
+  ) : validation() ? (
     <NotFound />
   ) : (
     <CountryComponent />

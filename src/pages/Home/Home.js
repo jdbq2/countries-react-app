@@ -9,8 +9,10 @@ import americas from "../../assets/images/americas.jpg";
 import europe from "../../assets/images/europe.jpg";
 import oceania from "../../assets/images/oceania.jpg";
 import all from "../../assets/images/all.jpg";
+import Loading from "../../components/Loader/Loader";
 import gsap from "gsap";
 import Head from "../../components/Head/Head";
+import Loader from "../../components/Loader/Loader";
 
 const continents = [
   {
@@ -45,7 +47,7 @@ const continents = [
   },
 ];
 
-const Home = () => {
+const Home = ({ loading }) => {
   let title = useRef(null);
   let subtitle = useRef(null);
   let cards = useRef(null);
@@ -66,7 +68,9 @@ const Home = () => {
     );
   }, []);
 
-  return (
+  return loading ? (
+    <Loader />
+  ) : (
     <div className="home">
       <Head
         pageTitle="Home Page"

@@ -78,18 +78,18 @@ const routes = [
 const App = () => {
   return (
     <HashRouter basename="/">
-      <Layout>
-        <Switch>
-          {routes.map(({ path, Component }) => (
-            <Route key={path} exact path={path}>
-              <div className="app">
+      <div className="app">
+        <Layout>
+          <Switch>
+            {routes.map(({ path, Component }) => (
+              <Route key={path} exact path={path}>
                 <Component />
-              </div>
-            </Route>
-          ))}
-          <Route component={NotFound} />
-        </Switch>
-      </Layout>
+              </Route>
+            ))}
+            <Route component={NotFound} />
+          </Switch>
+        </Layout>
+      </div>
     </HashRouter>
   );
 };
