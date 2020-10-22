@@ -18,6 +18,7 @@ Aplicacion desarrollada con el fin de obtener informacion sobre los paises del m
 - Redux Thunk
 - React Helmet
 - Sass
+- Gsap
 
 ### Carpetas
 
